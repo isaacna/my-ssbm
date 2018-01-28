@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+
+      <h1>{{ user.tag }}</h2>
+
+      <li> Main: {{user.main}}
+
+      <h2>Sets</h2>
+      {% for set in sets1 %}
+        <li> {{set.tag_1}} ({{set.char_1}}) {{set.wins_1}} - {{set.wins_2}} vs. {{set.tag_2}} ({{set.char_2}}) at {{set.tournament}}
+      {% endfor %}
+
+      {% for set in sets2 %}
+        <li> {{set.tag_2}} ({{set.char_2}}) {{set.wins_2}} - {{set.wins_1}} vs. {{set.tag_1}} ({{set.char_1}}) at {{set.tournament}}
+      {% endfor %}
+
+      <h2>Placings</h2>
+      {% for placing in placings %}
+        <li> {{placing.placing}} - {{placing.tournament}}
+      {% endfor %}
+
+      <h2> Add a set </h2>
+      <form action="{{ url_for('addset') }}" method=post>
+        <dl>
+          <dt>Opponent:
+          <dd><input type=text name=opp_tag>
+          <dt>Your Character:
+          <dd><input type=text name=my_char>
+          <dt>Opponent's Character:
+          <dd><input type=text name=opp_char>
+          <dt>Games won:
+          <dd><input type=number name=games_won>
+          <dt>Games lost:
+          <dd><input type=number name=games_lost>
+          <dt>Tournament:
+          <dd><input type=text name=set_tournament>
+
+          <dd><input type=submit value=Add>
+        </dl>
+      </form>
+
+      <h2> Add a placing </h2>
+      <form action="{{ url_for('addplacing') }}" method=post>
+        <dl>
+          <dt>Placing:
+          <dd><input type=number name=placing>
+          <dt>Tournament:
+          <dd><input type=text name=placing_tournament>
+          <dd><input type=submit value=Add>
+        </dl>
+      </form>
+
+  {% endif %}
+
+{% endblock %}

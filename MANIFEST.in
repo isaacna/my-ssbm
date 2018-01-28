@@ -1,0 +1,3 @@
+graft myssbm/templates
+graft myssbm/static
+include myssbm/schema.sql
