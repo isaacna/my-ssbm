@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
   {% if session.logged_in %}
-
+  <div class="container">
+    <div class="jumbotron">
       <h1>{{ user.tag }}</h2>
 
       <li> Main: {{user.main}}
-
+    </div>
       <h2>Sets</h2>
       {% for set in sets1 %}
         <li> {{set.tag_1}} ({{set.char_1}}) {{set.wins_1}} - {{set.wins_2}} vs. {{set.tag_2}} ({{set.char_2}}) at {{set.tournament}}
@@ -36,7 +37,7 @@
           <dt>Tournament:
           <dd><input type=text name=set_tournament>
 
-          <dd><input type=submit value=Add>
+          <dd><input type=submit value=Add class="btn btn-primary">
         </dl>
       </form>
 
@@ -47,10 +48,10 @@
           <dd><input type=number name=placing>
           <dt>Tournament:
           <dd><input type=text name=placing_tournament>
-          <dd><input type=submit value=Add>
+          <dd><input type=submit value=Add class="btn btn-primary">
         </dl>
       </form>
-
+  </div>
   {% endif %}
 
 {% endblock %}
