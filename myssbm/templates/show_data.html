@@ -55,9 +55,9 @@
 
 
           <dt>Games won:
-          <dd><input type=number name=games_won>
+          <dd><input type=number name=games_won max ="3" min="0">
           <dt>Games lost:
-          <dd><input type=number name=games_lost>
+          <dd><input type=number name=games_lost max ="3" min="0">
           <dt>Tournament:
           <dd><input type=text name=set_tournament>
 
@@ -69,7 +69,7 @@
       <form action="{{ url_for('addplacing') }}" method=post>
         <dl>
           <dt>Placing:
-          <dd><input type=number name=placing>
+          <dd><input type=number name=placing min="1">
           <dt>Tournament:
           <dd><input type=text name=placing_tournament>
           <dd><input type=submit value=Add class="btn btn-primary">
