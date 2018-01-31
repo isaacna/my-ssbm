@@ -11,15 +11,10 @@
       <dt>Tag:
       <dd><input type=text name=tag>
       <dt>Main:
-      <div class="checkboxgroup">
-          <label> <img src="static/fox.png"> <br> <input type="radio" name="reg_main" value="Fox">  </label>
-          <label> <img src="static/marth.png"> <br> <input type="radio" name="reg_main" value="Marth"> </label>
-          <label> <img src="static/puff.png"> <br> <input type="radio" name="reg_main" value="Puff">  </label>
-          <label> <img src="static/Ice_Climbers.png"> <br> <input type="radio" name="reg_main" value="Ice_Climbers"> </label>
-          <label> <img src="static/Falco.png"> <br> <input type="radio" name="reg_main" value="Falco"> </label>
-          <label> <img src="static/Falcon.png"> <br> <input type="radio" name="reg_main" value="Falcon"> </label>
-          <label> <img src="static/Sheik.png"> <br> <input type="radio" name="reg_main" value="Sheik"> </label>
-          <label> <img src="static/Peach.png"> <br> <input type="radio" name="reg_main" value="Peach"> </label>
+      <div>
+        {% for sprite in sprites %}
+          <label><img src="static/{{sprite}}.png"> <br> <input type="radio" name="reg_main" value="{{sprite}}"> </label>
+        {% endfor %}
       </div>
       <dd><input type=submit value=Register>
     </dl>

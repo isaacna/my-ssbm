@@ -57,7 +57,8 @@ def show_data():
         sets1 = query_db('select wins_1, wins_2, tag_2, char_1, char_2, tournament from sets where tag_1 = ?', [user['tag']],one=False) #where player is tag 1
         sets2 = query_db('select wins_1, wins_2, tag_1, char_1, char_2, tournament from sets where tag_2 = ?', [user['tag']],one=False) #where player is tag 2
         placings = query_db('select placing, tournament from placings where tag = ?', [user['tag']], one=False)
-        return render_template('show_data.html', user=user, sets1=sets1, sets2=sets2, placings = placings)
+        sprites = ['Fox', 'Falco', 'Marth', 'Sheik', 'Puff', 'Peach', 'Falcon', 'Ice_Climbers'] #pass list of sprites
+        return render_template('show_data.html', user=user, sets1=sets1, sets2=sets2, placings=placings, sprites=sprites)
     else: #return default template
         return render_template('layout.html')
 
@@ -77,8 +78,9 @@ def register():
                     request.form['tag'], request.form['reg_main']] )
             db.commit()
             flash('Successfully registered')
-            return redirect(url_for('show_data'))
-    return render_template('register.html', error=error)
+            return redirect(url_for('show_data')) #redirect to home url
+    sprites = ['Fox', 'Falco', 'Marth', 'Sheik', 'Puff', 'Peach', 'Falcon', 'Ice_Climbers']
+    return render_template('register.html', error=error, sprites=sprites)
 
 #login route
 @app.route('/login', methods=['GET', 'POST'])
