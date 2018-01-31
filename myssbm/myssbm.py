@@ -74,7 +74,7 @@ def register():
             db.execute('insert into users (email, password, tag, main) values (?, ?, ?, ?)',
                     [request.form['email'],
                     generate_password_hash(request.form['password']),
-                    request.form['tag'], request.form['main']] )
+                    request.form['tag'], request.form['reg_main']] )
             db.commit()
             flash('Successfully registered')
             return redirect(url_for('show_data'))

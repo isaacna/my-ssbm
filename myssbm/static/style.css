@@ -1,8 +1,12 @@
-.center {
-  text-align : center;
-  background-color: blue;
+
+.checkboxgroup  {
+  display: inline-block;
+  text-align: center;
+}
+.checkboxgroup label input[type="radio"]{
+  display: block;
 }
 
-.right {
-  text-align : right;
+.checkboxgroup label {
+  display: block;
 }

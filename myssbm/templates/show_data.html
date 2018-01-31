@@ -3,22 +3,22 @@
   {% if session.logged_in %}
   <div class="container">
     <div class="jumbotron">
-      <h1>{{ user.tag }}</h2>
+      <h2>{{ user.tag }}</h2>
 
-      <li> Main: {{user.main}}
+       Main: <img src="static/{{user.main}}.png">
     </div>
       <h2>Sets</h2>
       {% for set in sets1 %}
-        <li> {{set.tag_1}} ({{set.char_1}}) {{set.wins_1}} - {{set.wins_2}} vs. {{set.tag_2}} ({{set.char_2}}) at {{set.tournament}}
+        <br> {{user.tag}} (<img src="static/{{set.char_1}}.png">) {{set.wins_1}} - {{set.wins_2}} vs. {{set.tag_2}} (<img src="static/{{set.char_2}}.png">) at {{set.tournament}}
       {% endfor %}
 
       {% for set in sets2 %}
-        <li> {{set.tag_2}} ({{set.char_2}}) {{set.wins_2}} - {{set.wins_1}} vs. {{set.tag_1}} ({{set.char_1}}) at {{set.tournament}}
+        <br> {{user.tag}} (<img src="static/{{set.char_2}}.png">) {{set.wins_2}} - {{set.wins_1}} vs. {{set.tag_1}} (<img src="static/{{set.char_1}}.png">) at {{set.tournament}}
       {% endfor %}
 
       <h2>Placings</h2>
       {% for placing in placings %}
-        <li> {{placing.placing}} - {{placing.tournament}}
+        <br> {{placing.placing}} - {{placing.tournament}}
       {% endfor %}
 
       <h2> Add a set </h2>
@@ -26,10 +26,34 @@
         <dl>
           <dt>Opponent:
           <dd><input type=text name=opp_tag>
-          <dt>Your Character:
-          <dd><input type=text name=my_char>
-          <dt>Opponent's Character:
-          <dd><input type=text name=opp_char>
+
+          <dt> Your Character:
+          <div class="checkboxgroup">
+            <label><img src="static/Fox.png"> <br> <input type="radio" name="my_char" value="Fox"> </label>
+            <label> <img src="static/Marth.png"> <br> <input type="radio" name="my_char" value="Marth"> </label>
+            <label> <img src="static/Puff.png"> <br> <input type="radio" name="my_char" value="Puff"> </label>
+            <label> <img src="static/Ice_Climbers.png"> <br> <input type="radio" name="my_char" value="Ice_Climbers"> </label>
+            <label> <img src="static/Falco.png"> <br> <input type="radio" name="my_char" value="Falco"> </label>
+            <label> <img src="static/Falcon.png"> <br> <input type="radio" name="my_char" value="Falcon"> </label>
+            <label> <img src="static/Sheik.png"> <br> <input type="radio" name="my_char" value="Sheik"> </label>
+            <label> <img src="static/Peach.png"> <br> <input type="radio" name="my_char" value="Peach"> </label>
+
+
+          </div>
+
+          <dt> Opponent's Character:
+          <div class="checkboxgroup">
+            <label> <img src="static/fox.png"> <br> <input type="radio" name="opp_char" value="Fox">  </label>
+            <label> <img src="static/marth.png"> <br> <input type="radio" name="opp_char" value="Marth"> </label>
+            <label> <img src="static/puff.png"> <br> <input type="radio" name="opp_char" value="Puff">  </label>
+            <label> <img src="static/Ice_Climbers.png"> <br> <input type="radio" name="opp_char" value="Ice_Climbers"> </label>
+            <label> <img src="static/Falco.png"> <br> <input type="radio" name="opp_char" value="Falco"> </label>
+            <label> <img src="static/Falcon.png"> <br> <input type="radio" name="opp_char" value="Falcon"> </label>
+            <label> <img src="static/Sheik.png"> <br> <input type="radio" name="opp_char" value="Sheik"> </label>
+            <label> <img src="static/Peach.png"> <br> <input type="radio" name="opp_char" value="Peach"> </label>
+          </div>
+
+
           <dt>Games won:
           <dd><input type=number name=games_won>
           <dt>Games lost:
